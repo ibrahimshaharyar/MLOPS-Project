@@ -165,7 +165,7 @@ Self-hosted runners
 
 Go to:
 
-http://<EC2-public-ip>:8000
+http:// <EC2-public-ip> :8000
 
 
 Enter student parameters → click Predict → see predicted performance.
