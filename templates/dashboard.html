@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Student Performance Insights</title>
+    <meta name="description"
+        content="Interactive analytics dashboard showing student performance patterns, distributions, and correlations">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">📊 ML Performance Predictor</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/predict" class="nav-link">Predict</a></li>
+                <li><a href="/dashboard" class="nav-link active">Dashboard</a></li>
+                <li><a href="/docs" class="nav-link">API Docs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="text-center mb-2" style="font-size: 2.5rem; font-weight: 800;">📈 Student Performance Analytics</h1>
+        <p class="text-center mb-3" style="color: #6b7280;">Comprehensive data analysis from 800 student records in the
+            training dataset</p>
+
+        <!-- Summary Statistics Cards -->
+        <div class="dashboard-grid" id="statsGrid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalStudents">-</div>
+                <div class="stat-label">Total Students</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgMath">-</div>
+                <div class="stat-label">Avg Math Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgReading">-</div>
+                <div class="stat-label">Avg Reading Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgWriting">-</div>
+                <div class="stat-label">Avg Writing Score</div>
+            </div>
+        </div>
+
+        <!-- Score Distributions -->
+        <div class="chart-container">
+            <h2 class="chart-title">Score Distributions</h2>
+            <canvas id="distributionChart"></canvas>
+        </div>
+
+        <!-- Category Distributions (Pie Charts) -->
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-md); margin-bottom: var(--spacing-lg);">
+            <div class="chart-container">
+                <h3 class="chart-title">Gender Distribution</h3>
+                <canvas id="genderChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3 class="chart-title">Race/Ethnicity</h3>
+                <canvas id="raceChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3 class="chart-title">Lunch Type</h3>
+                <canvas id="lunchChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3 class="chart-title">Test Prep Course</h3>
+                <canvas id="testPrepChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Scores by Gender (Box Plot Simulation) -->
+        <div class="chart-container">
+            <h2 class="chart-title">Score Comparison by Gender</h2>
+            <canvas id="scoresByGenderChart"></canvas>
+        </div>
+
+        <!-- Correlation Matrix -->
+        <div class="chart-container">
+            <h2 class="chart-title">Score Correlation Matrix</h2>
+            <div style="max-width: 600px; margin: 0 auto;">
+                <canvas id="correlationChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard JavaScript -->
+    <script src="/static/js/dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Score Prediction - ML Powered</title>
+    <meta name="description"
+        content="Predict student math scores based on demographic and academic factors using machine learning">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">📊 ML Performance Predictor</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/predict" class="nav-link active">Predict</a></li>
+                <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="/docs" class="nav-link">API Docs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="card">
+            <h1 class="card-title text-center">Predict Math Score</h1>
+            <p class="text-center mb-2" style="color: #6b7280;">Enter student information below to predict their math
+                score</p>
+
+            <!-- Result Display -->
+            {% if results %}
+            <div class="alert alert-success">
+                <h3 style="margin-bottom: 0.5rem;">✅ Prediction Complete</h3>
+                <p style="font-size: 1.5rem; font-weight: 700;">Predicted Math Score: {{ results }}</p>
+            </div>
+            {% endif %}
+
+            {% if error %}
+            <div class="alert alert-error">
+                <h3 style="margin-bottom: 0.5rem;">❌ Error</h3>
+                <p>{{ error }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Prediction Form -->
+            <form action="/predict" method="post">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+
+                    <!-- Gender -->
+                    <div class="form-group">
+                        <label class="form-label" for="gender">Gender</label>
+                        <select class="form-select" name="gender" id="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <!-- Ethnicity -->
+                    <div class="form-group">
+                        <label class="form-label" for="ethnicity">Race/Ethnicity</label>
+                        <select class="form-select" name="ethnicity" id="ethnicity" required>
+                            <option value="">Select Ethnicity</option>
+                            <option value="group A">Group A</option>
+                            <option value="group B">Group B</option>
+                            <option value="group C">Group C</option>
+                            <option value="group D">Group D</option>
+                            <option value="group E">Group E</option>
+                        </select>
+                    </div>
+
+                    <!-- Parental Education -->
+                    <div class="form-group">
+                        <label class="form-label" for="parental_level_of_education">Parental Level of Education</label>
+                        <select class="form-select" name="parental_level_of_education" id="parental_level_of_education"
+                            required>
+                            <option value="">Select Education Level</option>
+                            <option value="associate's degree">Associate's Degree</option>
+                            <option value="bachelor's degree">Bachelor's Degree</option>
+                            <option value="high school">High School</option>
+                            <option value="master's degree">Master's Degree</option>
+                            <option value="some college">Some College</option>
+                            <option value="some high school">Some High School</option>
+                        </select>
+                    </div>
+
+                    <!-- Lunch -->
+                    <div class="form-group">
+                        <label class="form-label" for="lunch">Lunch Type</label>
+                        <select class="form-select" name="lunch" id="lunch" required>
+                            <option value="">Select Lunch Type</option>
+                            <option value="standard">Standard</option>
+                            <option value="free/reduced">Free/Reduced</option>
+                        </select>
+                    </div>
+
+                    <!-- Test Preparation Course -->
+                    <div class="form-group">
+                        <label class="form-label" for="test_preparation_course">Test Preparation Course</label>
+                        <select class="form-select" name="test_preparation_course" id="test_preparation_course"
+                            required>
+                            <option value="">Did the student complete test prep?</option>
+                            <option value="none">None</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <!-- Reading Score -->
+                    <div class="form-group">
+                        <label class="form-label" for="reading_score">Reading Score (0-100)</label>
+                        <input class="form-control" type="number" name="reading_score" id="reading_score" min="0"
+                            max="100" placeholder="Enter reading score" required>
+                    </div>
+
+                    <!-- Writing Score -->
+                    <div class="form-group">
+                        <label class="form-label" for="writing_score">Writing Score (0-100)</label>
+                        <input class="form-control" type="number" name="writing_score" id="writing_score" min="0"
+                            max="100" placeholder="Enter writing score" required>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary" style="min-width: 200px;">
+                        🎯 Predict Math Score
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Info Card -->
+        <div class="card">
+            <h3 class="card-title">How It Works</h3>
+            <p>Our machine learning model analyzes multiple factors to predict a student's math score:</p>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li><strong>Demographic Factors:</strong> Gender, race/ethnicity, and parental education level</li>
+                <li><strong>Economic Factors:</strong> Lunch type (indicator of socioeconomic status)</li>
+                <li><strong>Preparation:</strong> Whether the student completed test preparation</li>
+                <li><strong>Academic Performance:</strong> Reading and writing scores</li>
+            </ul>
+            <p style="margin-top: 1rem;">The model was trained on 800 student records and uses ensemble methods
+                (CatBoost + XGBoost) for accurate predictions.</p>
+        </div>
+    </div>
+</body>
+
+</html>

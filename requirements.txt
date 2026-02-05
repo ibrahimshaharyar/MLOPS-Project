@@ -1,8 +1,13 @@
-pandas
-numpy
-seaborn
-matplotlib
-catboost
-xgboost
-dill
-#-e .
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+python-multipart==0.0.6
+jinja2==3.1.2
+pandas==2.1.4
+numpy==1.26.2
+seaborn==0.13.0
+matplotlib==3.8.2
+scikit-learn==1.3.2
+catboost==1.2.2
+xgboost==2.0.3
+dill==0.3.7

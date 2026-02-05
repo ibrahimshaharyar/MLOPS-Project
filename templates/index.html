@@ -1,1 +1,88 @@
-<h1>Hi, welcome to the homepage</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Predictor - ML Powered Analytics</title>
+    <meta name="description" content="Predict student math scores using machine learning and explore comprehensive performance analytics">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">📊 ML Performance Predictor</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link active">Home</a></li>
+                <li><a href="/predict" class="nav-link">Predict</a></li>
+                <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="/docs" class="nav-link">API Docs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1 class="hero-title">Student Performance Predictor</h1>
+            <p class="hero-subtitle">Harness the power of Machine Learning to predict math scores and analyze student performance patterns</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+                <a href="/predict" class="btn btn-secondary">Make a Prediction</a>
+                <a href="/dashboard" class="btn btn-primary">View Analytics</a>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2 class="card-title">🎯 Accurate Predictions</h2>
+                <p>Powered by CatBoost and XGBoost algorithms trained on student performance data to predict math scores with high accuracy.</p>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title">📈 Interactive Dashboard</h2>
+                <p>Explore comprehensive analytics with interactive visualizations showing score distributions, demographics, and correlations.</p>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title">🤖 ML Pipeline</h2>
+                <p>Complete MLOps pipeline with data preprocessing, feature engineering, model training, and automated predictions.</p>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="card">
+            <h2 class="card-title">About This Project</h2>
+            <p style="margin-bottom: 1rem;">
+                This application demonstrates a complete Machine Learning Operations (MLOps) pipeline for predicting student performance.
+                Built with FastAPI, it provides both a prediction interface and an analytics dashboard.
+            </p>
+            <p style="margin-bottom: 1rem;">
+                The model considers various factors including:
+            </p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Gender</li>
+                <li>Race/Ethnicity</li>
+                <li>Parental Level of Education</li>
+                <li>Lunch Type (standard/free-reduced)</li>
+                <li>Test Preparation Course Completion</li>
+                <li>Reading and Writing Scores</li>
+            </ul>
+            <p>
+                The dataset includes 1000 student records, enabling comprehensive analysis of factors affecting student performance.
+            </p>
+        </div>
+
+        <!-- Getting Started -->
+        <div class="card">
+            <h2 class="card-title">Getting Started</h2>
+            <ol style="margin-left: 2rem;">
+                <li><strong>Make Predictions:</strong> Navigate to the <a href="/predict" style="color: var(--primary);">Predict</a> page to input student information and get math score predictions.</li>
+                <li><strong>Explore Analytics:</strong> Visit the <a href="/dashboard" style="color: --primary);">Dashboard</a> to see interactive visualizations of the training data.</li>
+                <li><strong>API Documentation:</strong> Check out the <a href="/docs" style="color: var(--primary);">API Docs</a> for programmatic access to prediction and analytics endpoints.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

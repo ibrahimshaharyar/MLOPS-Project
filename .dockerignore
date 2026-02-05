@@ -1,0 +1,36 @@
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Notebooks (not needed in production)
+notebook/
+*.ipynb
+
+# Git
+.git/
+.github/
+.gitignore
+
+# IDE
+.vscode/
+.DS_Store
+
+# Logs and temporary files
+logs/
+*.log
+catboost_info/
+
+# Package info
+*.egg-info/
+mlproject.egg-info/
+
+# Keep artifacts folder (contains model files)
+# !artifacts/
